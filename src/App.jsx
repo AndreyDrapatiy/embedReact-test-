@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react'
 import './App.css'
 import API from './API'
 function App() {
-  const [count, setCount] = useState(0)
   const [data, setData] = useState(null)
 
   const getData = () => {
@@ -23,7 +22,7 @@ function App() {
       <h1>Widget Test Cors</h1>
       <div className="card">
         <button onClick={() => getData()}>
-          count is {count}
+          Get Datax
         </button>
         <p>
           React Widget

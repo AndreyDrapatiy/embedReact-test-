@@ -6,6 +6,7 @@ export default axios.create({
   baseURL: BaseURL,
   responseType: 'json',
   withCredentials: true,
+  credentials: 'include',
   headers: {
     'Cache-Control': 'no-store, must-revalidate',
     'Content-Type': 'application/json',
