@@ -1,25 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {useEffect, useState} from 'react'
 import './App.css'
-
+import API from './API'
 function App() {
   const [count, setCount] = useState(0)
+  const [data, setData] = useState(null)
 
+  const getData = () => {
+    API.get(`/api/v1/orders/categories/`)
+      .then((res) => {
+        const data = res.data.data;
+        setData(data);
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+  };
+  useEffect(() => {
+    console.log(data)
+  }, [data])
   return (
     <>
       <h1>Widget Test Cors</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => getData()}>
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          React Widget
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
