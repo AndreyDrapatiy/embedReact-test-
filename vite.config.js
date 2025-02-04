@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    'process.env': {}, // This prevents "process is not defined" errors
+  },
   build: {
     lib: {
       entry: 'src/widget.js',  // <--- Ensure correct entry point
